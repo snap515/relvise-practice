@@ -50,3 +50,21 @@ body {
     max-width: 1046px;
     margin: 0px auto;
 }
+
+.header {}
+
+.header__container {}
+
+._container {}
+
+.header__logo {}
+
+.header__menu {}
+
+.menu {}
+
+.menu__list {}
+
+.menu__item {}
+
+.menu__link {}
