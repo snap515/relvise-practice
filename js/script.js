@@ -1886,10 +1886,30 @@ const cars = [
 // }
 
 //*Example5
-//Написать код, для открытия модального окна с оверлеем.
+
 /*
+ *Сделать модальное окно, которое будет откріваться при клике на кнопку всередине тега body.
+ *Модальное окно идолжно закрываться по клику на полупрозрачный оверлей и на иконке крестика всередине модалки.
+ *Добавить на модалке логику закрытия при нажатии на кнопку ESC
+ */
 
-*/
+const modalWindow = document.getElementById("modalWindow");
+const overlay = document.getElementById("overlay");
+const closeBtn = document.getElementById("closeBtn");
+const openModalBtn = document.getElementById("openModalBtn");
+const modalOpenClass = "modal-open";
 
-const modalWindow = document.querySelector("#modalWindow");
-console.log(modalWindow);
+openModalBtn.addEventListener("click", handleModalOpen);
+overlay.addEventListener("click", handleModalOpen);
+closeBtn.addEventListener("click", handleModalOpen);
+document.body.addEventListener("keydown", handleModalCloseOnEsc);
+function handleModalOpen() {
+  document.body.classList.toggle(modalOpenClass);
+}
+
+function handleModalCloseOnEsc({ code }) {
+  if (document.body.classList.contains(modalOpenClass) && code === "Escape") {
+    console.log(modalOpenClass);
+    handleModalOpen();
+  }
+}
