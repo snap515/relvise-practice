@@ -1806,37 +1806,37 @@
 
 // container.insertAdjacentHTML('beforeend', contentList);
 
-const cars = [
-  {
-    id: 1,
-    car: "honda",
-    type: "civic",
-    price: 12000,
-    img: "https://images.prismic.io/carwow/3149ba8c-1b2d-4748-a395-271995aeb87f_LHD+Honda+Civic+eHEV+2022+exterior+%288%29.jpg?fit=clip&q=60&w=750&cs=tinysrgb&auto=format",
-  },
-  {
-    id: 2,
-    car: "audi",
-    type: "q7",
-    price: 40000,
-    img: "https://images.prismic.io/carwow/356d8b13-a35f-4e3d-99cf-5911edc63a39_LHD+Audi+Q7+2021+exterior+%2812%29.jpg?fit=clip&q=60&w=750&cs=tinysrgb&auto=format",
-  },
-  {
-    id: 33,
-    car: "bmw",
-    type: "5 series",
-    price: 9000,
-    img: "https://www.bmw.de/content/dam/bmw/common/all-models/5-series/sedan/2023/5-series-sedan-silver.png/jcr:content/renditions/cq5dam.resized.img.585.low.time1684927323013.png",
-  },
-  {
-    id: 3,
-    car: "honda",
-    type: "accord",
-    price: 20000,
-    number: "+3800000000",
-    img: "https://springerfachmedien.azureedge.net/sfm-trucker/thumb_750x422/media/5172/Honda-Accord.14556058.jpg",
-  },
-];
+// const cars = [
+//   {
+//     id: 1,
+//     car: "honda",
+//     type: "civic",
+//     price: 12000,
+//     img: "https://images.prismic.io/carwow/3149ba8c-1b2d-4748-a395-271995aeb87f_LHD+Honda+Civic+eHEV+2022+exterior+%288%29.jpg?fit=clip&q=60&w=750&cs=tinysrgb&auto=format",
+//   },
+//   {
+//     id: 2,
+//     car: "audi",
+//     type: "q7",
+//     price: 40000,
+//     img: "https://images.prismic.io/carwow/356d8b13-a35f-4e3d-99cf-5911edc63a39_LHD+Audi+Q7+2021+exterior+%2812%29.jpg?fit=clip&q=60&w=750&cs=tinysrgb&auto=format",
+//   },
+//   {
+//     id: 33,
+//     car: "bmw",
+//     type: "5 series",
+//     price: 9000,
+//     img: "https://www.bmw.de/content/dam/bmw/common/all-models/5-series/sedan/2023/5-series-sedan-silver.png/jcr:content/renditions/cq5dam.resized.img.585.low.time1684927323013.png",
+//   },
+//   {
+//     id: 3,
+//     car: "honda",
+//     type: "accord",
+//     price: 20000,
+//     number: "+3800000000",
+//     img: "https://springerfachmedien.azureedge.net/sfm-trucker/thumb_750x422/media/5172/Honda-Accord.14556058.jpg",
+//   },
+// ];
 
 //* Example3
 // // вывести на экран список изображений каждой машины по типу ul>li>img
@@ -1893,23 +1893,380 @@ const cars = [
  *Добавить на модалке логику закрытия при нажатии на кнопку ESC
  */
 
-const modalWindow = document.getElementById("modalWindow");
-const overlay = document.getElementById("overlay");
-const closeBtn = document.getElementById("closeBtn");
-const openModalBtn = document.getElementById("openModalBtn");
-const modalOpenClass = "modal-open";
+// const modalWindow = document.getElementById("modalWindow");
+// const overlay = document.getElementById("overlay");
+// const closeBtn = document.getElementById("closeBtn");
+// const openModalBtn = document.getElementById("openModalBtn");
+// const modalOpenClass = "modal-open";
 
-openModalBtn.addEventListener("click", handleModalOpen);
-overlay.addEventListener("click", handleModalOpen);
-closeBtn.addEventListener("click", handleModalOpen);
-document.body.addEventListener("keydown", handleModalCloseOnEsc);
-function handleModalOpen() {
-  document.body.classList.toggle(modalOpenClass);
-}
+// openModalBtn.addEventListener("click", handleModalOpen);
+// overlay.addEventListener("click", handleModalOpen);
+// closeBtn.addEventListener("click", handleModalOpen);
+// document.body.addEventListener("keydown", handleModalCloseOnEsc);
+// function handleModalOpen() {
+//   document.body.classList.toggle(modalOpenClass);
+// }
 
-function handleModalCloseOnEsc({ code }) {
-  if (document.body.classList.contains(modalOpenClass) && code === "Escape") {
-    console.log(modalOpenClass);
-    handleModalOpen();
-  }
-}
+// function handleModalCloseOnEsc({ code }) {
+//   if (document.body.classList.contains(modalOpenClass) && code === "Escape") {
+//     console.log(modalOpenClass);
+//     handleModalOpen();
+//   }
+// }
+
+//* Example 6
+//* кликнуть на элемент и узнать его цвет
+//* 1 способ(плохой)
+// const container3El = document.querySelector(".js-container3");
+// [...container3El.children].forEach((item) =>
+//   item.addEventListener("click", colorDeterminant)
+// );
+
+// function colorDeterminant(e) {
+//   console.log(e.target.dataset.color);
+// }
+//* 2 способ
+// const container3El = document.querySelector(".js-container3");
+// container3El.addEventListener("click", colorDeterminant);
+
+// function colorDeterminant(e) {
+//   if (!e.target.classList.contains("js-box")) {
+//     return;
+//   }
+//   console.log(e.target.dataset.color);
+// }
+
+/*
+ *Example 7
+ *крестики нолики
+ */
+
+// const container4El = document.querySelector(".js-content");
+// console.log(container4El);
+// const wins = [
+//   [1, 2, 3],
+//   [4, 5, 6],
+//   [7, 8, 9],
+//   [1, 4, 7],
+//   [2, 5, 8],
+//   [3, 6, 9],
+//   [1, 5, 9],
+//   [3, 5, 7],
+// ];
+
+// let player = "X";
+// let historyX = [];
+// let historyO = [];
+
+// function createMarkup() {
+//   let markup = "";
+//   for (let i = 1; i < 10; i += 1) {
+//     markup += `<div class ='item js-item' data-id = '${i}'></div>`;
+//   }
+//   container4El.innerHTML = markup;
+// }
+
+// createMarkup();
+
+// container4El.addEventListener("click", onClick);
+
+// function onClick(e) {
+//   const { target } = e;
+//   if (!target.classList.contains("js-item") || target.textContent) {
+//     return;
+//   }
+//   let id = Number(target.dataset.id);
+//   let result = false;
+//   if (player === "X") {
+//     historyX.push(id);
+//     result = isWinner(historyX);
+//   } else {
+//     historyO.push(id);
+//     result = isWinner(historyO);
+//   }
+//   target.textContent = player;
+//   if (result) {
+//     console.log(`Winner ${player} :)`);
+//     resetGame();
+//     return;
+//   } else if (historyX.length + historyO.length === 9) {
+//     console.log("try again");
+//     resetGame();
+//   }
+
+//   player = player === "X" ? "O" : "X";
+// }
+
+// function isWinner(arr) {
+//   return wins.some((item) => item.every((id) => arr.includes(id)));
+// }
+
+// function resetGame() {
+//   createMarkup();
+//   historyX = [];
+//   historyO = [];
+//   player = "X";
+// }
+
+// //* Example 8
+// //* Используя библиотеку basicLightBox отобразить картинки из массива cars. ul=>li=>img,p
+
+// const cars = [
+//   {
+//     id: 1,
+//     car: "honda",
+//     type: "civic",
+//     price: 12000,
+//     img: "https://images.prismic.io/carwow/3149ba8c-1b2d-4748-a395-271995aeb87f_LHD+Honda+Civic+eHEV+2022+exterior+%288%29.jpg?fit=clip&q=60&w=750&cs=tinysrgb&auto=format",
+//   },
+//   {
+//     id: 2,
+//     car: "audi",
+//     type: "q7",
+//     price: 40000,
+//     img: "https://images.prismic.io/carwow/356d8b13-a35f-4e3d-99cf-5911edc63a39_LHD+Audi+Q7+2021+exterior+%2812%29.jpg?fit=clip&q=60&w=750&cs=tinysrgb&auto=format",
+//   },
+//   {
+//     id: 3,
+//     car: "bmw",
+//     type: "5 series",
+//     price: 9000,
+//     img: "https://www.bmw.de/content/dam/bmw/common/all-models/5-series/sedan/2023/5-series-sedan-silver.png/jcr:content/renditions/cq5dam.resized.img.585.low.time1684927323013.png",
+//   },
+//   {
+//     id: 4,
+//     car: "honda",
+//     type: "accord",
+//     price: 20000,
+//     number: "+3800000000",
+//     img: "https://springerfachmedien.azureedge.net/sfm-trucker/thumb_750x422/media/5172/Honda-Accord.14556058.jpg",
+//   },
+// ];
+
+// const container5El = document.querySelector(".js-container5");
+// console.log(container5El);
+
+// const markup = cars
+//   .map(
+//     ({ img, car, id }) =>
+//       `<li class ="js-target" data-car-id="${id}"><img class ="js-target" width='400px' src="${img}" alt="${car}"><h2 class ="js-target">${car}</h2></li>`
+//   )
+//   .join("");
+
+// container5El.insertAdjacentHTML("beforeEnd", markup);
+
+// container5El.addEventListener("click", onClick);
+
+// function onClick(e) {
+//   if (!e.target.classList.contains("js-target")) {
+//     return;
+//   }
+
+//   const carId = e.target.dataset.carId ?? e.target.closest("li").dataset.carId;
+//   const currentItem = cars.find(({ id }) => id === Number(carId));
+//   console.log(currentItem);
+//   const instance = basicLightbox.create(
+//     `<div><img src="${currentItem.img}" alt="${currentItem.car}"><h2>${currentItem.car}</h2><h3>${currentItem.type}</h3><p>${currentItem.price}</p></div>`
+//   );
+//   instance.show();
+// }
+
+//* Example 9
+/*
+Створити калькулятор вартості продукту взалежності від ціни. при роботі з подіями викорситовувати делегування.
+Відрендерити всю розмітку через JS.
+
+При змінні данних в інпуті 1 чи 2 автоматично має перераховуватися загальна вартість
+
+завжди має відображатися валюта - грн
+
+Загальна сума відображається з копійами(2 знаки після коми)
+
+В підписі другого інпута має бути кольрова підказка скільки кілограм вибрав користувач на другому інпуті..
+
+Кольрова підказка має змінювати свою значення при перетягуванні повзунка.
+
+В інпуті 2 мін і макс поріг встновлюєте самостійно
+
+При завантаженні сторінки скрипт має автоматично розрахувати вартість на основі даних за азмовчуванням які ви встановите в розмітці
+
+*/
+
+// const formEl = document.getElementById("form");
+// const priceInputEl = document.getElementById("price");
+// const amountInputEl = document.getElementById("amount");
+// const quantityInputEl = document.getElementById("quantity");
+// const totalEl = document.getElementById("total");
+
+// const data = {
+//   price: 0,
+//   quantity: 0,
+//   calcTotalPrice() {
+//     return (this.price * this.quantity).toFixed(2);
+//   },
+// };
+
+// dataFill();
+// displayTotalPrice();
+// formEl.addEventListener("change", handleFormChange);
+
+// function handleFormChange({ target }) {
+//   const { value } = target;
+//   if (target === quantityInputEl) {
+//     amountInputEl.textContent = value;
+//   }
+//   target.setAttribute("value", value);
+
+//   dataFill();
+//   displayTotalPrice();
+//   console.log(data);
+// }
+
+// function dataFill() {
+//   data.price = priceInputEl.getAttribute("value");
+//   data.quantity = quantityInputEl.getAttribute("value");
+//   amountInputEl.textContent = data.quantity;
+// }
+
+// function displayTotalPrice() {
+//   totalEl.textContent = `Всього ${data.calcTotalPrice()} грн`;
+// }
+
+/*
+ *EXAMPLE 10
+ *Создать разметку и фильтр для неё через поиск
+  1.рендерим разметку
+  2.слушаем изменение фильтра
+  3. фильтруем данніе и рендерим новые элементы
+  4. подключаем lodash
+  5. по желанию используем fuseJs
+ */
+
+// const tech = [
+//   { label: "HTML" },
+//   { label: "CSS" },
+//   { label: "JavaScript" },
+//   { label: "Node.js" },
+//   { label: "React" },
+//   { label: "Vue" },
+//   { label: "Next.js" },
+//   { label: "Mobx" },
+//   { label: "Redux" },
+//   { label: "React Router" },
+//   { label: "GraphQL" },
+//   { label: "PostgreSQL" },
+//   { label: "MangoDB" },
+// ];
+
+// const refs = {
+//   list: document.querySelector(".js-list"),
+//   input: document.querySelector("#filter"),
+// };
+
+// refs.input.addEventListener("input", _.debounce(onFilterChange, 300));
+// const listItemsMarkup = createListItemsMarkup(tech);
+
+// refs.list.innerHTML = listItemsMarkup;
+
+// function createListItemsMarkup(items) {
+//   return items.map((item) => `<li>${item.label}</li>`).join("");
+// }
+
+// function onFilterChange(e) {
+//   const filter = e.target.value.toLowerCase();
+
+//   const filteredItems = tech.filter((item) =>
+//     item.label.toLowerCase().includes(filter)
+//   );
+//   refs.list.innerHTML = createListItemsMarkup(filteredItems);
+// }
+
+/*
+ *EXAMPLE 11
+ *Створити фугкцію яка приймає 1 параметр масив продуктів і повертає мутованій масив
+ *Потрібно перебрати масив і якщо він має об'єкти в яких дублюються айді, то quantity цих елементів потрібно сплюсувати.
+ *Ті об'экти в яких id співпав - видалити з масиву.
+ *(Потрібно мутувати масив, створювати новий не потрібно)
+ */
+// const products = [
+//   { id: "sku1", qty: 1 },
+//   { id: "sku2", qty: 2 },
+//   { id: "sku3", qty: 3 },
+//   { id: "sku1", qty: 6 },
+//   { id: "sku1", qty: 8 },
+//   { id: "sku2", qty: 19 },
+//   { id: "sku4", qty: 1 },
+// ];
+
+// function sortProduct(arr) {
+//   for (let i = 0; i < arr.length; i += 1) {
+//     console.log(arr[i]);
+//     for (let j = i + 1; j < arr.length; j += 1) {
+//       if (arr[i].id === arr[j].id) {
+//         arr[i].qty += arr[j].qty;
+//         arr.splice(j, 1);
+//         j -= 1;
+//       }
+//     }
+//   }
+// }
+
+// sortProduct(products);
+// console.log(products);
+
+/*
+*Example 111
+
+// */
+// firstTeam = [4, 5, 1];
+// secondTeam = [10, 15, 23];
+// thirdTeam = [5, 2, 4];
+
+// const pointsCalc = (arr) =>
+//   arr.reduce((acc, value) => acc + value / arr.length, 0).toFixed(2);
+
+// function whoIsWinner(team1, team2) {
+//   let firstTeam = pointsCalc(team1);
+//   let secondTeam = pointsCalc(team2);
+//   let coefficient = pointsCalc(team1) / pointsCalc(team2);
+
+//   if (coefficient >= 2) {
+//     console.log(
+//       `Winner is Team1 with ${firstTeam} points against ${secondTeam}`
+//     );
+//   } else if (coefficient <= 0.5) {
+//     console.log(
+//       `Winner is Team2 with ${secondTeam} points against ${firstTeam}`
+//     );
+//   } else {
+//     console.log(`DRAW. Team1: ${firstTeam}. Team2: ${secondTeam}`);
+//   }
+// }
+
+// whoIsWinner(firstTeam, secondTeam);
+// whoIsWinner(firstTeam, thirdTeam);
+// whoIsWinner(secondTeam, thirdTeam);
+
+/* 
+*Example12
+Написать форму логина и пароля где будет происходить валидация полей на длину после окончания ввода текста(_.debounce)
+*/
+
+const form = document.querySelector("form");
+const classes = {
+  wrong: "wrong",
+  correct: "correct",
+};
+
+form.addEventListener(
+  "input",
+  _.debounce(({ target }) => {
+    if (target.value.length <= 3 || target.value.length >= 10) {
+      target.classList.add(classes.wrong);
+      target.classList.remove(classes.correct);
+    } else {
+      target.classList.add(classes.correct);
+      target.classList.remove(classes.wrong);
+    }
+  }, 300)
+);
