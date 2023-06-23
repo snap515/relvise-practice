@@ -2215,7 +2215,7 @@
 // console.log(products);
 
 /*
-*Example 111
+*Example 11
 
 // */
 // firstTeam = [4, 5, 1];
@@ -2252,21 +2252,26 @@
 Написать форму логина и пароля где будет происходить валидация полей на длину после окончания ввода текста(_.debounce)
 */
 
-const form = document.querySelector("form");
-const classes = {
-  wrong: "wrong",
-  correct: "correct",
-};
+// const form = document.querySelector("form");
+// const classes = {
+//   wrong: "wrong",
+//   correct: "correct",
+// };
 
-form.addEventListener(
-  "input",
-  _.debounce(({ target }) => {
-    if (target.value.length <= 3 || target.value.length >= 10) {
-      target.classList.add(classes.wrong);
-      target.classList.remove(classes.correct);
-    } else {
-      target.classList.add(classes.correct);
-      target.classList.remove(classes.wrong);
-    }
-  }, 300)
-);
+// form.addEventListener(
+//   "input",
+//   _.debounce(({ target }) => {
+//     if (target.value.length <= 3 || target.value.length >= 10) {
+//       target.classList.add(classes.wrong);
+//       target.classList.remove(classes.correct);
+//     } else {
+//       target.classList.add(classes.correct);
+//       target.classList.remove(classes.wrong);
+//     }
+//   }, 300)
+// );
+
+/*
+ *practice 13
+  тест localStorage и sessionStorage
+ */
